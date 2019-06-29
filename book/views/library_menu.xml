@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Library App Menu 主菜单名-->
+    <menuitem id="menu_library" name="BookItem" />
+
+        <!-- Action to open the Book list 子目录-->
+    <act_window id="action_library_book"
+        name="Library Books"            
+        res_model="library.books"
+        view_mode="tree,form"
+    />
+    <!-- Menu item to open the Book list -->
+    <menuitem id="menu_library_book"
+        name="MyBooks"
+        parent="menu_library"
+        action="action_library_book"
+    />
+
+</odoo>

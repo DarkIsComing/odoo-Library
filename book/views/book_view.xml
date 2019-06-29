@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_form_book" model="ir.ui.view">
+        <field name="name">Book Form</field>
+        <field name="model">library.books</field>
+        <field name="arch" type="xml">
+            <form string="Book">
+                
+                <header>
+                <!-- string：定义按钮显示文本
+                    type：执行的操作类型
+                    name：操作的标识符
+                    class：应用 CSS 样式的可选属性，与 HTML 相同 -->
+                    <button name="button_check_isbn" type="object" string="Check ISBN" />
+                </header>
+                <sheet>
+                   
+                    <group name="group_lll">
+                        <group name="group_right">
+                            <field name="name" />
+                            <field name="author_ids" widget="many2many_tags" />
+                            <field name="publisher_id" />
+                            <field name="date_published" />
+                               
+                        </group>
+                        <group name="group_left">
+                         <field name="isbn" />
+                            <field name="active" />
+                            
+                        </group>
+                        <group name="group_ledd">
+                         <field name="isbn" />
+                            <field name="active" />
+                            
+                        </group>
+                    </group>
+
+                    <group name="group_hhh">
+                            <field name="image" widget="image" />
+                    </group>
+
+                      <group name="group_www">
+                            <field name="image" widget="image" />
+                    </group>
+
+
+                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record id="view_tree_book" model="ir.ui.view">
+        <field name="name">Book List</field>
+        <field name="model">library.books</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="author_ids" widget="many2many_tags" />
+                <field name="publisher_id" />
+                <field name="date_published" />
+            </tree>
+        </field>
+    </record>
+
+
+
+
+    <record id="view_search_book" model="ir.ui.view">
+        <field name="name">Book Filters</field>
+        <field name="model">library.books</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="date_published" />
+                <field name="publisher_id" />
+                <filter name="filter_active"
+                    string="Active"
+                    domain="[('active','=',True)]" />
+                <filter name="filter_inactive"
+                    string="Inactive"
+                    domain="[('active','=',False)]" />
+            </search>
+        </field>
+    </record>
+
+</odoo>
